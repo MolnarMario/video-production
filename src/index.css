@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Barlow+Condensed:wght@400;600;700;800&family=Cinzel:wght@400;600;700;800&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  :root.dark {
+    color-scheme: dark;
+  }
+}
+
+/* Global App Font Theme Classes */
+html.font-theme-jetbrains-mono, body.font-theme-jetbrains-mono, .font-theme-jetbrains-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+html.font-theme-barlow-condensed, body.font-theme-barlow-condensed, .font-theme-barlow-condensed {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+html.font-theme-fraunces, body.font-theme-fraunces, .font-theme-fraunces {
+  font-family: 'Fraunces', Georgia, serif;
+}
+html.font-theme-courier-prime, body.font-theme-courier-prime, .font-theme-courier-prime {
+  font-family: 'Courier Prime', Courier, monospace;
+}
+html.font-theme-cinzel, body.font-theme-cinzel, .font-theme-cinzel {
+  font-family: 'Cinzel', Georgia, serif;
+}
+html.font-theme-architects-daughter, body.font-theme-architects-daughter, .font-theme-architects-daughter {
+  font-family: 'Architects Daughter', cursive, sans-serif;
+}
+
+/* Dedicated Preview Card Isolation */
+[data-font-card="jetbrains-mono"], [data-font-card="jetbrains-mono"] * {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+[data-font-card="barlow-condensed"], [data-font-card="barlow-condensed"] * {
+  font-family: 'Barlow Condensed', sans-serif !important;
+}
+[data-font-card="fraunces"], [data-font-card="fraunces"] * {
+  font-family: 'Fraunces', Georgia, serif !important;
+}
+[data-font-card="courier-prime"], [data-font-card="courier-prime"] * {
+  font-family: 'Courier Prime', Courier, monospace !important;
+}
+[data-font-card="cinzel"], [data-font-card="cinzel"] * {
+  font-family: 'Cinzel', Georgia, serif !important;
+}
+[data-font-card="architects-daughter"], [data-font-card="architects-daughter"] * {
+  font-family: 'Architects Daughter', cursive, sans-serif !important;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.8);
+}
