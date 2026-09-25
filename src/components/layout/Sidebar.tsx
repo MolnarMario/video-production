@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useProjects } from '../../context/ProjectContext';
 import { ProjectListSection } from '../projects/ProjectListSection';
+import { stripHtml } from '../script/RichTextEditor';
 import {
   PlayCircle,
   CheckCircle2,
@@ -41,7 +42,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     return list.filter(p =>
       p.title.toLowerCase().includes(q) ||
       p.description?.toLowerCase().includes(q) ||
-      p.sections.some(s => s.title.toLowerCase().includes(q) || s.content.toLowerCase().includes(q))
+      p.sections.some(s => s.title.toLowerCase().includes(q) || stripHtml(s.content).toLowerCase().includes(q))
     );
   };
 

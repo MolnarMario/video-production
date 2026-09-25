@@ -75,3 +75,82 @@ html.font-theme-architects-daughter, body.font-theme-architects-daughter, .font-
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(100, 116, 139, 0.8);
 }
+
+/* Custom Sleek Corner Resizer */
+::-webkit-resizer {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: bottom 2px right 2px;
+  background-size: 10px 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M8 2 L2 8 M9 5 L5 9 M9 8 L8 9' stroke='%2394a3b8' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+}
+
+.dark ::-webkit-resizer {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M8 2 L2 8 M9 5 L5 9 M9 8 L8 9' stroke='%2364748b' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+}
+
+::-webkit-resizer:hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M8 2 L2 8 M9 5 L5 9 M9 8 L8 9' stroke='%230ea5e9' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+}
+
+/* Rich Text Editor Content & Typography */
+.rich-script-editor {
+  outline: none;
+  min-height: 4.5rem;
+}
+
+.rich-script-editor ul {
+  list-style-type: disc !important;
+  margin: 0.35rem 0 !important;
+  padding-left: 1.4rem !important;
+}
+
+.rich-script-editor ol {
+  list-style-type: decimal !important;
+  margin: 0.35rem 0 !important;
+  padding-left: 1.4rem !important;
+}
+
+.rich-script-editor li {
+  margin: 0.15rem 0 !important;
+  display: list-item !important;
+}
+
+.rich-script-editor p {
+  margin: 0.25rem 0 !important;
+}
+
+.rich-script-editor p:first-child {
+  margin-top: 0 !important;
+}
+
+.rich-script-editor p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.rich-script-editor b,
+.rich-script-editor strong {
+  font-weight: 700 !important;
+}
+
+.rich-script-editor i,
+.rich-script-editor em {
+  font-style: italic !important;
+}
+
+.rich-script-editor u {
+  text-decoration: underline !important;
+}
+
+/* Rich Text Placeholder */
+.rich-script-editor[data-empty="true"]::before {
+  content: attr(data-placeholder);
+  color: #94a3b8;
+  pointer-events: none;
+  font-style: normal;
+  display: block;
+}
+
+.dark .rich-script-editor[data-empty="true"]::before {
+  color: #64748b;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ScriptSection } from '../../types';
 import { useProjects } from '../../context/ProjectContext';
+import { RichTextEditor, stripHtml } from './RichTextEditor';
 import {
   Video,
   Scissors,
@@ -31,7 +32,8 @@ export const ScriptSectionItem: React.FC<ScriptSectionItemProps> = ({
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [titleInput, setTitleInput] = useState(section.title);
 
-  const wordCount = section.content.trim() ? section.content.trim().split(/\s+/).length : 0;
+  const plainText = stripHtml(section.content);
+  const wordCount = plainText.trim() ? plainText.trim().split(/\s+/).length : 0;
 
   const handleTitleSubmit = () => {
     if (titleInput.trim() && titleInput !== section.title) {
@@ -160,15 +162,13 @@ export const ScriptSectionItem: React.FC<ScriptSectionItemProps> = ({
 
       {/* Script Text Body */}
       <div className="p-3">
-        <textarea
-          value={section.content}
-          onChange={(e) => updateSection(projectId, section.id, { content: e.target.value })}
+        <RichTextEditor
+          content={section.content}
+          onChange={(htmlContent) => updateSection(projectId, section.id, { content: htmlContent })}
           placeholder="Type script or teleprompter lines here..."
-          rows={Math.max(2, Math.min(8, section.content.split('\n').length))}
-          className="w-full bg-transparent hover:bg-slate-50/50 dark:hover:bg-slate-950/40 focus:bg-slate-50 dark:focus:bg-slate-950/70 border border-transparent focus:border-slate-300 dark:focus:border-slate-700/80 rounded-lg p-2 text-xs text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none transition resize-y font-mono leading-relaxed"
         />
         {wordCount > 0 && (
-          <div className="text-[10px] text-slate-400 dark:text-slate-500 font-mono text-right mt-0.5 pr-1">
+          <div className="text-[10px] text-slate-400 dark:text-slate-500 font-mono text-right mt-1.5 pr-1">
             {wordCount} words
           </div>
         )}

@@ -157,7 +157,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({ project })
                   autoFocus
                   rows={2}
                   placeholder="Add notes or concept summary..."
-                  className="w-full text-xs text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-950 border border-sky-500/80 rounded-lg p-2 focus:outline-none font-sans"
+                  className="w-full text-xs text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-950 border border-sky-500/80 rounded-lg p-2 focus:outline-none font-sans resize-y min-h-[3.5rem]"
                 />
                 <button
                   onClick={handleDescSubmit}
